@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script defer>
+            window.onload = () => {
+                const field = document.querySelector("#field");
+                const submit = document.querySelector("#submit");
+                field.addEventListener("input", () => {
+                    if (field.value.length !== 5 || isNaN(field.value)) {
+                        field.style = "color:red";
+                        submit.style = "visibility: hidden";
+                    } else {
+                        field.style = "color:green";
+                        submit.style = "visibility: visible";
+                    }
+                });
+            };
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="field" />
+        <button style="visibility: hidden" id="submit">Submit</button>
+    </body>
+</html>

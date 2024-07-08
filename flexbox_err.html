@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style type="text/css">
+                .box {
+                   width: 104px;
+                   height: 104px;
+                   display: flex;
+                   justify-content: space-between;
+
+                }
+
+                .punkt {
+                   display: block;
+                   width: 24px;
+                   height: 24px;
+                   border-radius: 50%;
+                   background-color: #333;
+
+                }
+                .box .column {
+                   display: flex;
+                   flex-direction: column;
+                   justify-content: space-between;
+                }
+
+                .box .column:nth-of-type(2) {
+
+                   justify-content: end;
+                }
+                </style>
+
+    </head>
+    <body>
+        <div class="box">
+            <div class="column">
+                <span class="punkt"></span>
+            </div>
+            <div class="column">
+                <span class="punkt"></span>
+            </div>
+            <div class="column">
+                <span class="punkt"></span>
+                <span class="punkt"></span>
+            </div>
+        </div>
+        o 0 x<br></br>
+        <strong style="color: red">x</strong> 0 0<br></br>
+        o x x<br></br>
+
+    </body>
+</html>

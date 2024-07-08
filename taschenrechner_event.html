@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            table {
+            }
+            td {
+                background: green;
+                border: 1px black solid;
+                padding: 12px;
+                cursor: pointer;
+            }
+        </style>
+        <script defer>
+            let n1 = "0";
+            let n2 = "";
+            let op_cache = "+";
+
+            function parseNumber(r) {
+                if (r.includes(".")) {
+                    if (Number.isNaN(Number.parseFloat(r))) {
+                        return null;
+                    }
+                    return Number.parseFloat(r);
+                } else {
+                    if (Number.isNaN(Number.parseInt(r))) {
+                        return null;
+                    }
+                    return Number.parseInt(r);
+                }
+            }
+
+            function calc() {
+                const l = parseNumber(n1);
+                const r = parseNumber(n2);
+                if (op_cache == "-") {
+                    n1 = (l - r).toString();
+                } else if (op_cache == "+") {
+                    n1 = (l + r).toString();
+                } else if (op_cache == "*") {
+                    n1 = (l * r).toString();
+                } else if (op_cache == "/") {
+                    n1 = (l / r).toString();
+                }
+            }
+
+            function update(op) {
+                calc();
+                op_cache = op;
+                n2 = "";
+                console.log("temp: " + n1);
+            }
+
+            window.onload = () => {
+                document.querySelectorAll(".num").forEach(
+                    (e) =>
+                        (e.onclick = () => {
+                            n2 += e.id;
+                        }),
+                );
+                document.querySelectorAll(".op").forEach(
+                    (e) =>
+                        (e.onclick = () => {
+                            update(e.id);
+                        }),
+                );
+                document.querySelector(".eq").onclick = (e) => {
+                    calc();
+                    console.log("final: " + n1);
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td id="7" class="num">7</td>
+                <td id="8" class="num">8</td>
+                <td id="9" class="num">9</td>
+                <td id="-" class="op">-</td>
+                <td id="/" class="op">/</td>
+            </tr>
+            <tr>
+                <td id="4" class="num">4</td>
+                <td id="5" class="num">5</td>
+                <td id="6" class="num">6</td>
+                <td id="+" class="op">+</td>
+                <td id="*" class="op">*</td>
+            </tr>
+            <tr>
+                <td id="1" class="num">1</td>
+                <td id="2" class="num">2</td>
+                <td id="3" class="num">3</td>
+                <td id="." class="num">,</td>
+                <td id="=" class="eq">=</td>
+            </tr>
+        </table>
+    </body>
+</html>

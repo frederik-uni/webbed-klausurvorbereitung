@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .relative {
+                position: relative;
+                width: 375px;
+                height: 400px;
+                background: rgba(0, 0, 0, 0.3);
+            }
+            .floater {
+                float: right;
+                width: 100px;
+                height: 100px;
+                margin: 12px;
+                background: green;
+            }
+            .clearfloat {
+                clear: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="relative">
+            <div class="floater">Floating 1</div>
+            <div class="floater clearfloat">Floating 2</div>
+            <div class="floater">Floating 3</div>
+            <div class="floater">Floating 4</div>
+            <p>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                Etiam porta sem malesuada magna mollis euismod. Vestibulum id
+                ligula porta felis euismod semper. Fusce dapibus, tellus ac
+                cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                massa justo sit amet risus.
+            </p>
+        </div>
+    </body>
+</html>
