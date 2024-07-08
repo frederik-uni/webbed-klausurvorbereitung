@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .img {
+                width: 60px;
+            }
+            .img_full {
+                width: 100%;
+            }
+        </style>
+        <script defer>
+
+        window.onload = () => {
+          document.querySelectorAll(".img").forEach(e => {
+            e.addEventListener("mouseover", () => e.classList.add("img_full"), false);
+            e.addEventListener("mouseout", () => e.classList.remove("img_full"), false);
+          });
+        }
+        </script>
+    </head>
+    <body>
+        <img src = "s1.gif" class="img"></img>
+        <img src = "s2.jpg" class="img"></img>
+        <img src = "s3.jpg" class="img"></img>
+    </body>
+</html>
