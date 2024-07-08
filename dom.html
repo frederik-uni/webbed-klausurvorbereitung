@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script defer>
+            function t1(children) {
+                for (let i = children.length; i > 0; i--) {
+                    if (children[i - 1].textContent.startsWith("Text6")) {
+                        return children[i - 1];
+                    }
+                    const temp = t1(children[i - 1].children);
+                    if (temp != null) {
+                        return temp;
+                    }
+                }
+                return null;
+            }
+
+            function t2() {
+                document
+                    .querySelectorAll("strong")
+                    .forEach((v) => v.setAttribute("title", v.textContent));
+            }
+
+            function t3() {
+                const small = document.querySelector("strong.small");
+                if (small != null) {
+                    const element = document.createElement("strong");
+                    element.innerText = "Neuer Text";
+                    small.parentNode.append(element);
+                }
+            }
+            window.onload = () => {
+                const children = document.querySelector("body").children;
+                console.log(t1(children));
+                t2();
+                t3();
+            };
+        </script>
+    </head>
+    <body>
+        <body id="start">
+            <div>
+                <p>Text1</p>
+
+                <p>
+                    Text2<span>Text3</span>Text4<strong>Text5</strong>
+                    <span>Text6<strong class="small">Text7</strong></span>
+                </p>
+            </div>
+        </body>
+    </body>
+</html>
